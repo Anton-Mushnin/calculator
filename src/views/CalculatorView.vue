@@ -1,27 +1,9 @@
 <script setup lang="ts">
-import TheInput from './TheInput.vue';
-import BaseButton from './BaseButton.vue';
+import TheInput from '../components/TheInput.vue';
+import BaseButton from '../components/BaseButton.vue';
 import { store } from '../stores/expression';
 import { operators } from '../model/Operators';
-import TheNumPad from './TheNumPad.vue';
-defineProps<{
-  msg: string;
-}>();
-const digits = [
-  '(',
-  ')',
-  '0',
-  '1',
-  '2',
-  '3',
-  '4',
-  '5',
-  '6',
-  '7',
-  '8',
-  '9',
-  '.',
-];
+import TheNumPad from '../components/TheNumPad.vue';
 </script>
 
 <template>

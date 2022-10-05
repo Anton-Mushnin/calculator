@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { operators } from '../model/Operators';
 import { store } from '../stores/expression';
 defineProps<{
   symbol: string;
