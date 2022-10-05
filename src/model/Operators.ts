@@ -1,17 +1,18 @@
 import { UnaryOperator, BinaryOperator } from "./Operator";
 
-const unaryOperators = {
-  sqrt: new UnaryOperator("sqrt", Math.sqrt),
-};
+const unaryOperators = new Map([
+  ["-", new UnaryOperator("-", (a) => -a)],
+  ["\u221A", new UnaryOperator("\u221A", Math.sqrt)],
+]);
 
-const binaryOperators = {
-  "+": new BinaryOperator("+", (a, b) => a + b, 2),
-  "-": new BinaryOperator("-", (a, b) => a - b, 2),
-  "*": new BinaryOperator("*", (a, b) => a * b, 1),
-  "/": new BinaryOperator("/", (a, b) => a / b, 1),
-  "%": new BinaryOperator("%", (a, b) => (a / b) * 100, 1),
-};
+const binaryOperators = new Map([
+  ["+", new BinaryOperator("+", (a, b) => a + b, 2)],
+  ["-", new BinaryOperator("-", (a, b) => a - b, 2)],
+  ["*", new BinaryOperator("*", (a, b) => a * b, 1)],
+  ["/", new BinaryOperator("/", (a, b) => a / b, 1)],
+  ["%", new BinaryOperator("%", (a, b) => (a / 100) * b, 1)],
+]);
 
-const operators = { ...unaryOperators, ...binaryOperators };
+const operators = [...unaryOperators.keys(), ...binaryOperators.keys()];
 
 export { unaryOperators, binaryOperators, operators };
