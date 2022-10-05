@@ -89,3 +89,9 @@ function calc(expression: string[]): number {
     throw new Error("can't parse value");
   }
 }
+
+function evaluateExpression(expression: string): number {
+  return calc(expressionToArray(expression));
+}
+
+export default evaluateExpression;
