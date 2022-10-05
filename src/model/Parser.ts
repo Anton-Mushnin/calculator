@@ -49,7 +49,6 @@ function indexOfClosingParenthes(expression: string[]): number {
 }
 
 function getValue(expression: string[]): [number, number] {
-  console.log('getValue', expression);
   if (expression[0] === '(') {
     const closingParenthes = indexOfClosingParenthes(expression);
     return [calc(expression.slice(1, closingParenthes)), closingParenthes + 1];
