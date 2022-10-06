@@ -15,5 +15,5 @@ test('evaluateExpression', () => {
 
   expect(evaluateExpression('-\u221A\u221A16 + 1')).toBe(-1);
   expect(evaluateExpression('(2 + (2 * -3) * 5 + 7)')).toBe(-21);
-  expect(evaluateExpression('(2 + (2 * -3) * 5 + 7)')).toBe(-21);
+  expect(evaluateExpression('(((2 + (2 * -3) * (5 + 7))))')).toBe(-70);
 });

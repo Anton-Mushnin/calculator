@@ -37,4 +37,4 @@ class BinaryOperator extends Operator {
   }
 }
 
-export { UnaryOperator, BinaryOperator };
+export { UnaryOperator, BinaryOperator, Operator };

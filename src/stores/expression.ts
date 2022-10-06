@@ -9,5 +9,6 @@ export const store = reactive({
   },
   addSymbol(c: string) {
     this.expression += c;
+    this.eval();
   },
 });

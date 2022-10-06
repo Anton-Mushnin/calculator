@@ -4,5 +4,10 @@ import { store } from '../stores/expression';
 </script>
 
 <template>
-  <input type="text" class="input" v-model="store.expression" />
+  <input
+    @input="store.eval()"
+    type="text"
+    class="input"
+    v-model="store.expression"
+  />
 </template>
