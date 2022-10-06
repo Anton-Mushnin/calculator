@@ -1,6 +1,6 @@
 import { reactive } from 'vue';
 import evaluateExpression from '../model/Parser';
-import { isLastSymbolValid, addSpaces } from '@/model/Operators';
+import { isLastSymbolValid } from '@/model/Operators';
 
 export const store = reactive({
   expression: '',
@@ -19,7 +19,7 @@ export const store = reactive({
   },
   eval() {
     const result = evaluateExpression(this.expression);
-    this.result = isNaN(result) ? 'Invalid expression' : result.toString();
+    this.result = isNaN(result) ? '=N/A' : `=${result.toString()}`;
   },
   addSymbol(c: string) {
     this.expression += c;

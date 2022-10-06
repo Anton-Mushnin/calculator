@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { VNode } from 'vue';
 import { store } from '../stores/expression';
+import { binaryOperators, unaryOperators } from '@/model/Operators';
 const props = defineProps<{
   symbol: string;
 }>();

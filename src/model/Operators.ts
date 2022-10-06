@@ -7,8 +7,8 @@ const unaryOperators: Map<string, UnaryOperator> = new Map([
 
 const binaryOperators: Map<string, BinaryOperator> = new Map([
   ['+', new BinaryOperator('+', (a, b) => a + b, 2)],
-  ['-', new BinaryOperator('-', (a, b) => a - b, 2)],
-  ['*', new BinaryOperator('*', (a, b) => a * b, 1)],
+  ['-', new BinaryOperator('\uFF0D', (a, b) => a - b, 2)],
+  ['*', new BinaryOperator('\uFF0A', (a, b) => a * b, 1)],
   ['/', new BinaryOperator('/', (a, b) => a / b, 1)],
   ['%', new BinaryOperator('%', (a, b) => (a / 100) * b, 1)],
 ]);

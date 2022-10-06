@@ -5,6 +5,7 @@ import BaseButton from '../components/BaseButton.vue';
 import { store } from '../stores/expression';
 import { operators } from '../model/Operators';
 import TheNumPad from '../components/TheNumPad.vue';
+import TheInputAndOutput from '../components/TheInputAndOutput.vue';
 
 
 const input = ref();
@@ -17,14 +18,7 @@ function handle() {
 
 <template>
   <div @keydown.esc="handle" class="container" tabindex="0">
-    <input
-      @input="store.checkAndEval()"
-      type="text"
-      class="input"
-      v-model="store.expression"
-      ref="input"
-      id="input"
-    />
+    <TheInputAndOutput />
     <BaseButton v-for="symbol in [...operators, '(', ')']" :key="symbol" :symbol="symbol" />
     <TheNumPad />
     <span class="result">{{ store.result }}</span>
@@ -39,9 +33,7 @@ h1 {
 }
 .container {
   height: 100%;
-  background-color: aliceblue;
-  color:blue;
-  padding: 2rem;
+  /* padding: 2rem; */
 }
 h3 {
   font-size: 1.2rem;
