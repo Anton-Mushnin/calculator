@@ -90,7 +90,13 @@ function calc(expression: string[]): number {
 }
 
 function evaluateExpression(expression: string): number {
-  return calc(expressionToArray(expression));
+  let result: number;
+  try {
+    result = calc(expressionToArray(expression));
+  } catch {
+    result = NaN;
+  }
+  return result;
 }
 
 export default evaluateExpression;

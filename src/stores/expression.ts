@@ -18,11 +18,11 @@ export const store = reactive({
     }
   },
   eval() {
-    this.result = evaluateExpression(this.expression).toString();
+    const result = evaluateExpression(this.expression);
+    this.result = isNaN(result) ? 'Invalid expression' : result.toString();
   },
   addSymbol(c: string) {
     this.expression += c;
     this.checkAndEval();
-    // this.eval();
   },
 });
