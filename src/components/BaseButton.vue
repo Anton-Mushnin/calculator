@@ -1,12 +1,18 @@
 <script setup lang="ts">
+import type { VNode } from 'vue';
 import { store } from '../stores/expression';
-defineProps<{
+const props = defineProps<{
   symbol: string;
 }>();
+
+function handle() {
+  store.addSymbol(props.symbol);
+  document.getElementById('input')?.focus();
+}
 </script>
 
 <template>
-  <button @click="store.addSymbol(symbol)" type="button">
+  <button @click="handle" type="button" tabindex="1">
     {{ symbol }}
   </button>
 </template>

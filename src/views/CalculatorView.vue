@@ -1,21 +1,34 @@
 <script setup lang="ts">
+  import {ref} from 'vue';
 import TheInput from '../components/TheInput.vue';
 import BaseButton from '../components/BaseButton.vue';
 import { store } from '../stores/expression';
 import { operators } from '../model/Operators';
 import TheNumPad from '../components/TheNumPad.vue';
+
+
+const input = ref();
+
 function handle() {
   store.clear();
+  input.value.focus();
 }
 </script>
 
 <template>
-  <span @keydown.esc="handle" class="container">
-  <TheInput></TheInput>
-  <BaseButton v-for="symbol in [...operators, '(', ')']" :key="symbol" :symbol="symbol" />
-  <TheNumPad />
-  <span class="result">{{ store.result }}</span>
-  </span>
+  <div @keydown.esc="handle" class="container" tabindex="0">
+    <input
+      @input="store.checkAndEval()"
+      type="text"
+      class="input"
+      v-model="store.expression"
+      ref="input"
+      id="input"
+    />
+    <BaseButton v-for="symbol in [...operators, '(', ')']" :key="symbol" :symbol="symbol" />
+    <TheNumPad />
+    <span class="result">{{ store.result }}</span>
+  </div>
 </template>
 
 <style scoped>
@@ -28,9 +41,14 @@ h1 {
   height: 100%;
   background-color: aliceblue;
   color:blue;
+  padding: 2rem;
 }
 h3 {
   font-size: 1.2rem;
+}
+
+*:focus {
+  outline: none;
 }
 
 .greetings h1,
