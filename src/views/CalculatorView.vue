@@ -12,7 +12,7 @@ function handle() {
 <template>
   <span @keydown.esc="handle" class="container">
   <TheInput></TheInput>
-  <BaseButton v-for="symbol in operators" :key="symbol" :symbol="symbol" />
+  <BaseButton v-for="symbol in [...operators, '(', ')']" :key="symbol" :symbol="symbol" />
   <TheNumPad />
   <span class="result">{{ store.result }}</span>
   </span>
