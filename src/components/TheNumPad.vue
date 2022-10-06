@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import BaseButton from './BaseButton.vue';
 import TheEvalButton from './TheEvalButton.vue';
-const digits = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.'];
+import { digits } from '../model/Operators';
 </script>
 
 <template>

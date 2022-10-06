@@ -5,7 +5,7 @@ import { store } from '../stores/expression';
 
 <template>
   <input
-    @input="store.eval()"
+    @input="store.checkAndEval()"
     type="text"
     class="input"
     v-model="store.expression"
