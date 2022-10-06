@@ -6,7 +6,11 @@ import { digits } from '../model/Operators';
 
 <template>
   <div class="wrapper">
-    <BaseButton v-for="digit in digits" :key="digit" :symbol="digit" />
+    <BaseButton
+      v-for="digit in [...digits, '.']"
+      :key="digit"
+      :symbol="digit"
+    />
     <TheEvalButton />
   </div>
 </template>

@@ -20,8 +20,8 @@ const operators = [
   ...unaryArray,
 ];
 
-const digits = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.'];
-const valueStart = [...digits, '(', ...unaryArray];
+const digits = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+const valueStart = [...digits, '(', '.', ...unaryArray];
 const afterDigits = [...digits, '.', ')', ...binaryOperators.keys()];
 
 function isLastSymbolValid(expression: string): Boolean {
@@ -31,6 +31,9 @@ function isLastSymbolValid(expression: string): Boolean {
   }
   const prevSymbol = cleanExpression.slice(-2, -1);
   const symbol = cleanExpression.slice(-1);
+  if (prevSymbol === '.') {
+    return digits.includes(symbol);
+  }
   if (digits.includes(prevSymbol)) {
     return afterDigits.includes(symbol);
   }
