@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import BaseButton from './BaseButton.vue';
-import TheEvalButton from './TheEvalButton.vue';
 import { digits } from '../model/Operators';
-import { store } from '../stores/expression';
 
 const firstRow = [
   'C',
@@ -26,7 +24,6 @@ const firstRow = [
   '\u221A',
   '%',
 ];
-// const digits
 </script>
 
 <template>
@@ -45,6 +42,7 @@ const firstRow = [
 
 <style scoped>
 .wrapper {
+  font-size: 32px;
   margin-top: 32px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { store } from '../stores/expression';
-import { binaryOperators, unaryOperators } from '@/model/Operators';
 const props = defineProps<{
   symbol: string;
   childclass: object;
@@ -19,23 +18,30 @@ function handle() {
 
 <style scoped>
 button {
-  /* width: 100%; */
   font-size: 32px;
   background-color: white;
   border-style: none;
   padding: 6px 6px;
   aspect-ratio: 1;
+  transition: all 0.5s;
 }
 
+.digit:hover,
+.operator:hover {
+  font-size: 1.2em;
+  background-color: rgba(90, 139, 174, 0.05);
+}
+
+.digit:active,
+.operator:active {
+  /* border: solid 1px rgb(128, 128, 128, 0.1); */
+  background-color: rgba(90, 139, 174, 0.3);
+}
 .digit {
   color: #5a8bae;
 }
 
 .operator {
   color: #fba705;
-}
-
-button:hover {
-  background-color: rgba(245, 245, 220, 0.1);
 }
 </style>

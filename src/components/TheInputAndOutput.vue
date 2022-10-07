@@ -12,7 +12,7 @@ import { store } from '../stores/expression';
       id="input"
       autofocus
     ></textarea>
-    <div class="result">{{ store.result }}</div>
+    <div id="result" class="result">{{ store.result }}</div>
   </div>
 </template>
 
@@ -23,7 +23,6 @@ import { store } from '../stores/expression';
   padding: 16px 16px;
   background-color: white;
   border-radius: 10px;
-  /* flex-grow: 3; */
   height: 100%;
   justify-content: space-between;
   max-width: 100%;
