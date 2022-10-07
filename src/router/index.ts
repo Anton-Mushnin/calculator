@@ -9,11 +9,6 @@ const router = createRouter({
       name: 'home',
       component: CalculatorView,
     },
-    {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/AboutView.vue'),
-    },
   ],
 });
 
