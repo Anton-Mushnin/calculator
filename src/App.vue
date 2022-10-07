@@ -15,5 +15,7 @@ header {
   letter-spacing: 0.08em;
   font-variant: small-caps;
   font-weight: 400;
+  margin-bottom: 32px;
+  margin-top: 16px;
 }
 </style>

@@ -8,6 +8,7 @@ export const store = reactive({
   clear() {
     this.expression = '';
     this.result = '';
+    document.getElementById('input')?.focus();
   },
   checkAndEval() {
     if (isLastSymbolValid(this.expression)) {
@@ -22,7 +23,12 @@ export const store = reactive({
     this.result = isNaN(result) ? '=N/A' : `=${result.toString()}`;
   },
   addSymbol(c: string) {
-    this.expression += c;
-    this.checkAndEval();
+    if (c === 'C') {
+      this.clear();
+    } else {
+      this.expression += c;
+      this.checkAndEval();
+      document.getElementById('input')?.focus();
+    }
   },
 });

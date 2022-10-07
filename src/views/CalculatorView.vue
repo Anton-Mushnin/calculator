@@ -12,46 +12,27 @@ const input = ref();
 
 function handle() {
   store.clear();
-  input.value.focus();
 }
 </script>
 
 <template>
   <div @keydown.esc="handle" class="container" tabindex="0">
     <TheInputAndOutput />
-    <BaseButton v-for="symbol in [...operators, '(', ')']" :key="symbol" :symbol="symbol" />
     <TheNumPad />
-    <span class="result">{{ store.result }}</span>
   </div>
 </template>
 
 <style scoped>
-h1 {
-  font-weight: 500;
-  font-size: 2.6rem;
-  top: -10px;
-}
-.container {
+
+.container{
   height: 100%;
-  /* padding: 2rem; */
-}
-h3 {
-  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* justify-items: stretch; */
 }
 
 *:focus {
   outline: none;
-}
-
-.greetings h1,
-.greetings h3 {
-  text-align: center;
-}
-
-@media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
-  }
 }
 </style>
