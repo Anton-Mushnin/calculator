@@ -6,7 +6,6 @@ import { store } from '../stores/expression';
   <div class="input-container">
     <textarea
       @input="store.checkAndEval()"
-      type="text"
       class="input"
       v-model="store.expression"
       id="input"
@@ -37,6 +36,7 @@ textarea {
   font-size: 20px;
   font-weight: 400;
   height: 100%;
+  transition: all 0.5s;
 }
 
 .result {

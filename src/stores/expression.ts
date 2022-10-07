@@ -1,6 +1,6 @@
 import { reactive } from 'vue';
 import evaluateExpression from '../model/Parser';
-import { isLastSymbolValid } from '@/model/Operators';
+import { isLastSymbolValid } from '@/model/Validation';
 
 export const store = reactive({
   expression: '',
@@ -11,11 +11,19 @@ export const store = reactive({
     document.getElementById('input')?.focus();
   },
   checkAndEval() {
+    if (this.expression === '') {
+      this.clear();
+      return;
+    }
     if (isLastSymbolValid(this.expression)) {
-      // this.expression = addSpaces(this.expression);
       this.eval();
     } else {
       this.expression = this.expression.slice(0, -1);
+      const input = document.getElementById('input')!;
+      input.style.backgroundColor = 'rgba(255, 0, 0, 0.1)';
+      setTimeout(() => {
+        input.style.backgroundColor = 'white';
+      }, 500);
     }
   },
   eval() {
