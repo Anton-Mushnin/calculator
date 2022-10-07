@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import BaseButton from './BaseButton.vue';
-import { digits } from '../model/Operators';
+import { digits } from '../model/Validation';
 
-const firstRow = [
+const symbols = [
   'C',
   '(',
   ')',
@@ -29,7 +29,7 @@ const firstRow = [
 <template>
   <div class="wrapper">
     <BaseButton
-      v-for="symbol in firstRow"
+      v-for="symbol in symbols"
       :key="symbol"
       :symbol="symbol"
       :childclass="{
@@ -47,7 +47,7 @@ const firstRow = [
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   background-color: white;
-  padding: 16px;
+  padding: 8px;
   border-radius: 10px;
 }
 </style>

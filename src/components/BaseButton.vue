@@ -11,7 +11,7 @@ function handle() {
 </script>
 
 <template>
-  <button @click="handle" type="button" tabindex="1" :class="childclass">
+  <button @click="handle" type="button" :class="childclass">
     {{ symbol }}
   </button>
 </template>
@@ -34,7 +34,6 @@ button {
 
 .digit:active,
 .operator:active {
-  /* border: solid 1px rgb(128, 128, 128, 0.1); */
   background-color: rgba(90, 139, 174, 0.3);
 }
 .digit {
